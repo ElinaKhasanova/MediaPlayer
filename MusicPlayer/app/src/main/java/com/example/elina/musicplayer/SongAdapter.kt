@@ -7,15 +7,12 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.elina.musicplayer.R.id.song_artist
+import com.example.elina.musicplayer.R.id.song_title
 
 import java.util.ArrayList
 
 class SongAdapter(context: Context, private val songs: ArrayList<Song>) : BaseAdapter() {
-    private val songInf: LayoutInflater
-
-    init {
-        this.songInf = LayoutInflater.from(context)
-    }
 
     override fun getCount(): Int {
         return songs.size
@@ -30,13 +27,11 @@ class SongAdapter(context: Context, private val songs: ArrayList<Song>) : BaseAd
     }
 
     override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
-        val songLay = songInf.inflate(R.layout.song, parent, false) as LinearLayout
-        val songView = songLay.findViewById<TextView>(R.id.song_title)
-        val artistView = songLay.findViewById<TextView>(R.id.song_artist)
+        val songView = song_title
+        val artistView = song_artist
         val currSong = songs[position]
         songView.text = currSong.title
         artistView.text = currSong.artist
-        songLay.tag = position
-        return songLay
+        return songView
     }
 }

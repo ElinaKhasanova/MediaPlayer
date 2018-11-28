@@ -8,6 +8,7 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import com.example.elina.musicplayer.R.id.*
 
 import java.util.ArrayList
 
@@ -26,12 +27,12 @@ class MusicController : Callback, SharedPreferences.OnSharedPreferenceChangeList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_two)
 
-        prev = findViewById(R.id.btn_prev)
-        next = findViewById(R.id.btn_next)
-        play = findViewById(R.id.btn_play)
-        change = findViewById(R.id.btn_settings)
-        nameOfSong = findViewById(R.id.tv_title)
-        artist = findViewById(R.id.tv_artist)
+        val prev = btn_prev
+        val next = btn_next
+        val play = btn_play
+        val change = btn_settings
+        val nameOfSong = tv_title
+        val artist = tv_artist
         position = getIntent().getIntExtra("position", 0)
 
         prev.setOnClickListener {
@@ -60,7 +61,6 @@ class MusicController : Callback, SharedPreferences.OnSharedPreferenceChangeList
             else -> themeId = R.style.Theme1
         }
         setTheme(themeId)
-
 
         val intent = Intent(this, MusicService::class.java)
         startService(intent)
