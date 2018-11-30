@@ -1,0 +1,21 @@
+.wrap{
+    margin: 100px auto;
+    width: 40%;
+}
+
+h3{
+    background: #FFB6C1;
+    text-align: center;
+}
+
+article{
+    background: #E6E6FA;
+}
+
+h3:hover{
+    background: #DB7093;
+    cursor: pointer;
+}
+
+
+
